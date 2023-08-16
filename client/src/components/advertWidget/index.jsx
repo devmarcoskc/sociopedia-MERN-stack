@@ -12,7 +12,7 @@ const AdvertWidget = () => {
         <WidgetWrapper>
             <FlexBetween>
                 <Typography color={dark} variant="h5" fontWeight="500">
-                    Patrocionio
+                    Patrocionios
                 </Typography>
                 <Typography color={medium}>Criar anúncio</Typography>
             </FlexBetween>
@@ -28,8 +28,7 @@ const AdvertWidget = () => {
                 <Typography color={medium}>AlgumAnúncio.com</Typography>
             </FlexBetween>
             <Typography color={medium} m="0.5rem 0">
-                Algum anúncio de alguma empresa pra caber aqui pra eu poder testar
-                e ver se fica bonita assim.
+                Lugar para botar algúm anúncio para testar
             </Typography>
         </WidgetWrapper>
     )

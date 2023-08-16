@@ -60,7 +60,7 @@ const PostsWidget = ({userId, isProfile = false}) => {
             )
         ) : (
             <>
-                Carregando os posts...
+                Carregando os posts, aguarde um momento...
             </>
         )}
         
