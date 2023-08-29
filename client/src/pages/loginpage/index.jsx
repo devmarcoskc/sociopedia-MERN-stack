@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import Form from './form';
+import Loading from '../../components/loading';
 
 const LoginPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-with: 1000px)");
-
-  alert('Devido o site estar hospedado em uma plataforma gratuita, o loading das funcionalidades pode demorar um pouco! Por favor, seja paciente')
 
   return (
     <Box>
@@ -26,29 +26,41 @@ const LoginPage = () => {
         <Box 
           width={isNonMobileScreens ? "50%" : "93"}
           p="2rem"
-          m="2rem auto"
+          mt="2rem auto"
           borderRadius="1.5rem"
           backgroundColor={theme.palette.background.alt}
         >
           <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
             Seja bem-vindo a Sociopedia, sua rede social!
           </Typography>
-          <Form/>
+          {!isLoading &&
+            <Form isLoading={isLoading} setIsLoading={setIsLoading}/>
+          }
+          {isLoading && 
+            <Loading/>
+          }
         </Box>
       </Box>
-      <Box display="flex" flexDirection="column" alignContent="center" textAlign="center" width="100%" gap="5px">
-        <Typography mt="10px">
-          Como o projeto está em fase de testes! Pode-se 
-          usar um email fake que segue os padrões! O mesmo
-          vale para a senha!
-        </Typography>
-        <Typography>
-          Exemplo para login: fake@gmail.com
-        </Typography>
-        <Typography>
-          Exemplo para senha: fakesenha
-        </Typography>
-      </Box>
+      
+      {!isLoading &&
+        <Box display="flex" flexDirection="column" alignContent="center" textAlign="center" width="100%" gap="5px">
+          <Typography mt="10px">
+            Devido o sistema de hospedagem ser gratuito, as funcionalidades podem demorar alguns
+            segundos pela primeira vez!
+          </Typography>
+          <Typography mt="10px">
+            Como o projeto está em fase inicial! Pode-se 
+            usar um email fake para testar! O mesmo
+            vale para a senha!
+          </Typography>
+          <Typography>
+            Exemplo para login: fake@gmail.com
+          </Typography>
+          <Typography>
+            Exemplo para senha: fakesenha
+          </Typography>
+        </Box>
+      }
     </Box>
   )
 }

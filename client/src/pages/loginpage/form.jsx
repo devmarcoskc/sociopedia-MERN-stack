@@ -46,7 +46,7 @@ const initialValuesLogin = {
     password: "",
 }
 
-const Form = () => {
+const Form = ({isLoading, setIsLoading}) => {
     const [pageType, setPageType] = useState("login");
     const [userNotFoundMsg, setUserNotFoundMsg] = useState(false);
     const { palette } = useTheme();
@@ -85,6 +85,7 @@ const Form = () => {
     };
 
     const login = async (values, onSubmitProps) => {
+        setIsLoading(true);
         const loggedInResponse = await fetch(
             `${import.meta.env.VITE_BASE_URL}/auth/login`,
             {
@@ -96,6 +97,7 @@ const Form = () => {
 
         const loggedIn = await loggedInResponse.json();
         onSubmitProps.resetForm();
+        setIsLoading(false);
         if(loggedIn) {
             dispatch(
                 setLogin({
@@ -105,6 +107,7 @@ const Form = () => {
             );
             navigate("/home");
         }
+
     };
 
     const handleFormSubmit = async (values, onSubmitProps) => {
@@ -272,7 +275,7 @@ return (
                             color: palette.primary.main,
                             "&:hover": {
                                 cursor: "pointer",
-                                color: palette.primary.light,
+                                color: "#00aac8",
                             },
                         }}
                     >

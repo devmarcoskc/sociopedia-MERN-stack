@@ -68,19 +68,6 @@ const NavBar = () => {
         >
           Sociopedia
         </Typography>
-        {isNonMobileScreens && (
-          <FlexBetween 
-            backgroundColor={neutralLight} 
-            borderRadius="9px" 
-            gap="3rem"
-            padding="0.1rem 1.5rem"
-          >
-            <InputBase placeholder='Pesquisar'/>
-            <IconButton>
-              <Search/>
-            </IconButton>
-          </FlexBetween>
-        )}
       </FlexBetween>
 
       {/*DESKTOP NAV*/}
@@ -94,9 +81,6 @@ const NavBar = () => {
             )}
           </IconButton>
           <EditOutlined sx={{fontSize: "25px", cursor: "pointer"}} onClick={() => navigate(`/edit/${user._id}`)}/>
-          <Message sx={{fontSize: "25px"}}/>
-          <Notifications sx={{fontSize: "25px"}}/>
-          <Help sx={{fontSize: "25px"}}/>
           <FormControl variant="standard" value={fullName}>
             <Select 
               value={fullName}
