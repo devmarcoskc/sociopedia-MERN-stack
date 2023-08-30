@@ -4,7 +4,10 @@ import Form from './form';
 import Loading from '../../components/loading';
 
 const LoginPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingSettings, setLoadingSettings] = useState({
+    isRegister: false,
+    isLoading: false
+  });
   const theme = useTheme();
   const isNonMobileScreens = useMediaQuery("(min-with: 1000px)");
 
@@ -33,16 +36,16 @@ const LoginPage = () => {
           <Typography fontWeight="500" variant="h5" sx={{mb:"1.5rem"}}>
             Seja bem-vindo a Sociopedia, sua rede social!
           </Typography>
-          {!isLoading &&
-            <Form isLoading={isLoading} setIsLoading={setIsLoading}/>
+          {!loadingSettings.isLoading &&
+            <Form loadingSettings={loadingSettings} setLoadingSettings={setLoadingSettings}/>
           }
-          {isLoading && 
-            <Loading/>
+          {loadingSettings.isLoading && 
+            <Loading isRegister={loadingSettings.isRegister}/>
           }
         </Box>
       </Box>
       
-      {!isLoading &&
+      {!loadingSettings.isLoading &&
         <Box display="flex" flexDirection="column" alignContent="center" textAlign="center" width="100%" gap="5px">
           <Typography mt="10px">
             Devido o sistema de hospedagem ser gratuito, as funcionalidades podem demorar alguns

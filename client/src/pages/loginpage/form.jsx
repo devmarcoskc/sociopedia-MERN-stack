@@ -46,7 +46,7 @@ const initialValuesLogin = {
     password: "",
 }
 
-const Form = ({isLoading, setIsLoading}) => {
+const Form = ({loadingSettings, setLoadingSettings}) => {
     const [pageType, setPageType] = useState("login");
     const [userNotFoundMsg, setUserNotFoundMsg] = useState(false);
     const { palette } = useTheme();
@@ -57,6 +57,7 @@ const Form = ({isLoading, setIsLoading}) => {
     const isRegister = pageType === "register";
 
     const register = async (values, onSubmitProps) => {
+        setLoadingSettings({... loadingSettings, isRegister: true, isLoading: true});
         const formData = new FormData();
         for (let value in values) {
             formData.append(value, values[value])
@@ -70,7 +71,7 @@ const Form = ({isLoading, setIsLoading}) => {
                 body: formData
             }
         );
-
+        setLoadingSettings({... loadingSettings, isRegister: true, isLoading: false})
         if(savedUserResponse.status === 201) {
             const savedUser = await savedUserResponse.json();
             onSubmitProps.resetForm();
@@ -85,7 +86,7 @@ const Form = ({isLoading, setIsLoading}) => {
     };
 
     const login = async (values, onSubmitProps) => {
-        setIsLoading(true);
+        setLoadingSettings({... loadingSettings, isRegister: false, isLoading: true});
         const loggedInResponse = await fetch(
             `${import.meta.env.VITE_BASE_URL}/auth/login`,
             {
@@ -97,7 +98,7 @@ const Form = ({isLoading, setIsLoading}) => {
 
         const loggedIn = await loggedInResponse.json();
         onSubmitProps.resetForm();
-        setIsLoading(false);
+        setLoadingSettings({... loadingSettings, isRegister: false, isLoading: false})
         if(loggedIn) {
             dispatch(
                 setLogin({
