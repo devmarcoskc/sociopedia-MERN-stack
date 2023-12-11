@@ -1,9 +1,9 @@
 # Sociopedia sua rede social
 ## Sobre o projeto:
 Sociopedia é um dos projetos que mais gostei de desenvolver, se trata de uma rede social em que usuários podem compartilhar suas postagens com foto com a comunidade, permitindo que você curta e adicione amigos a lista! 
-Criei o projeto com intuito de treinar os meus conhecimentos em Node, React e MongoDB.
+Criei o projeto com intuito de treinar os meus conhecimentos em Node, React e MongoDB. Veja o projeto: https://sociopedia-fnet.onrender.com/
 ## Funcionalidades: 
-  - Sistema de autenticação: ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/4808b3a3-0f6c-41e4-9d7f-70108bd6656c)
+  - Sistema de autenticação: ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/ea34bc6c-6976-4b0d-ae8c-37c67b154cfa)
   - Ver o feed de posts, criar um post, remove-lô: ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/0f630505-bc13-40b2-995f-054f0f199320)
   - Adicionar um amigo ou remove-lô: ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/344fdae4-e60c-4bf3-b888-8bd3c52f0f27) ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/39d9fbfa-d624-4c5f-8c80-96cd460ce0f4)
   - Editar seu perfil: ![image](https://github.com/devmarcoskc/sociopedia-MERN-stack/assets/118542843/8dafd317-c127-44f1-abd2-0281a49aa487)
